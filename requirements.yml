@@ -1,0 +1,9 @@
+---
+- src: micalexander.docker
+- src: micalexander.neovim
+- src: micalexander.user
+- src: micalexander.ruby
+- src: micalexander.python2
+- src: micalexander.python3
+- src: micalexander.node
+- src: micalexander.ufw

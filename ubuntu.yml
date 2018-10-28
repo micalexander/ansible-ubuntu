@@ -1,0 +1,26 @@
+---
+- name: Provision new ubunutu
+  hosts: all
+  gather_facts: false
+  become: yes
+  become_user: root
+  become_method: sudo
+  pre_tasks:
+    - name: 'install python2'
+      raw: >
+        sudo apt-get update -qq;
+        apt-get -yq install python-simplejson;
+
+  vars:
+    user: ubuntu
+    allow_tcp_ports:
+      - 22 # ssh
+      - 2376 # docker swarm
+      - 3376 # docker swarm
+    pip2_install: [ 'powerline-status' ]
+
+  roles:
+    - micalexander.user
+    - micalexander.ufw
+    - micalexander.neovim
+    - micalexander.docker
