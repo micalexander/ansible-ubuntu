@@ -1,4 +1,5 @@
 ---
+- src: micalexander.docker_dev
 - src: micalexander.docker
 - src: micalexander.neovim
 - src: micalexander.user
