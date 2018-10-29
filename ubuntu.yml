@@ -10,17 +10,17 @@
       raw: >
         sudo apt-get update -qq;
         apt-get -yq install python-simplejson;
-
   vars:
     user: ubuntu
-    allow_tcp_ports:
-      - 22 # ssh
-      - 2376 # docker swarm
-      - 3376 # docker swarm
-    pip2_install: [ 'powerline-status' ]
-
   roles:
+    - role: micalexander.ufw
+      allow_tcp_ports:
+        - 22 # ssh
+        - 2376 # docker swarm
+        - 3376 # docker swarm
     - micalexander.user
-    - micalexander.ufw
+    - role: micalexander.python2
+      pip2_install: ['powerline-status']
     - micalexander.neovim
     - micalexander.docker
+    - micalexander.docker_dev
